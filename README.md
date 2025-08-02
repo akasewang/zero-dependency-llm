@@ -37,7 +37,7 @@ The model follows the transformer architecture outlined in "Attention is All You
 The model achieved a cross-entropy loss of **0.6**, which translates to approximately **54.9%** accuracy in predicting the next character in a sequence (calculated as e^(-0.6)).
 
 ### Training Progress
-![Training Progress](images/ss_1.png)
+![Training Progress](images/ss1.png)
 
 ## 🌐 Web Interface
 
@@ -47,11 +47,11 @@ Built with Next.js, the interactive interface allows users to:
 - Experiment with different prompts in real-time
 
 ### Interface Screenshots
-![Main Interface](images/ss_2.png)
-![Generation Controls](images/ss_3.png)
-![Generated Code](images/ss_4.png)
-![Attention Visualization](images/ss_5.png)
-![Attention Details](images/ss_6.png)
+![Main Interface](images/ss2.png)
+![Generation Controls](images/ss3.png)
+![Generated Code](images/ss4.png)
+![Attention Visualization](images/ss5.png)
+![Attention Details](images/ss6.png)
 
 ## 🚀 Quick Start
 
