@@ -21,7 +21,7 @@ export default function Header() {
             Experience a transformer model built entirely from scratch - no PyTorch, no TensorFlow, just pure Python mathematics
           </p>
           <a
-            href="https://github.com/akashdewangan/zero-dependency-llm"
+            href="https://github.com/akasewang/zero-dependency-llm"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg text-white font-medium transition-all duration-200 backdrop-blur-sm"
           >
             <Github className="w-5 h-5" />
