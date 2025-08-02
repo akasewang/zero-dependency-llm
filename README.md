@@ -49,7 +49,9 @@ Built with Next.js, the interactive interface allows users to:
 ### Interface Screenshots
 ![Main Interface](images/ss_2.png)
 ![Generation Controls](images/ss_3.png)
-![Attention Visualization](images/ss_4.png)
+![Generated Code](images/ss_4.png)
+![Attention Visualization](images/ss_5.png)
+![Attention Details](images/ss_6.png)
 
 ## 🚀 Quick Start
 
