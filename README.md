@@ -175,10 +175,12 @@ zero-dependency-llm/
 │   ├── vocab.json            # Vocabulary mapping
 │   └── Dockerfile            # Container deployment
 └── images/                   # README screenshots
-    ├── ss_1.png              # Training progress
-    ├── ss_2.png              # Main interface
-    ├── ss_3.png              # Generation controls
-    └── ss_4.png              # Attention visualization
+    ├── ss1.png              # Training progress
+    ├── ss2.png              # Main interface
+    ├── ss3.png              # Generation controls
+    └── ss4.png              # Generated Code
+    └── ss5.png              # Attention visualization
+    └── ss6.png              # Attention Details
 ```
 
 ## 🎓 Learning Outcomes
@@ -197,4 +199,4 @@ Contributions are welcome! Please feel free to submit issues, fork the repositor
 
 ---
 
-**Built by Akash Dewangan with dedication to understanding the fundamentals of modern AI architecture.**
+**Built by akash dewangan.**
