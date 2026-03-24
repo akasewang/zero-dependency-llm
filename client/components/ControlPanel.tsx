@@ -1,15 +1,15 @@
 import React from 'react';
-import { Settings, Play, Loader2 } from 'lucide-react';
+import { Sliders, Play, Loader2, Cpu } from 'lucide-react';
 
 interface ControlPanelProps {
   prompt: string;
-  setPrompt: (value: string) => void;
+  setPrompt: (val: string) => void;
   temperature: number;
-  setTemperature: (value: number) => void;
+  setTemperature: (val: number) => void;
   length: number;
-  setLength: (value: number) => void;
+  setLength: (val: number) => void;
   heatMap: boolean;
-  setHeatMap: (value: boolean) => void;
+  setHeatMap: (val: boolean) => void;
   onSubmit: () => void;
   loading: boolean;
 }
@@ -19,99 +19,75 @@ export default function ControlPanel({
   heatMap, setHeatMap, onSubmit, loading
 }: ControlPanelProps) {
   return (
-    <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6">
-      <div className="flex items-center gap-2 mb-6">
-        <Settings className="w-5 h-5 text-purple-400" />
-        <h2 className="text-xl font-semibold text-white">Generation Controls</h2>
+    <div className="bg-slate-950 border border-slate-800 rounded-none p-0 shadow-2xl">
+      <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3 bg-slate-900/50">
+        <div className="flex items-center gap-2">
+          <Cpu className="w-4 h-4 text-emerald-500" />
+          <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">Inference_Engine</span>
+        </div>
+        <div className="flex gap-1">
+          <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+          <div className="w-2 h-2 rounded-full bg-slate-700"></div>
+        </div>
       </div>
       
-      <div className="space-y-6">
-        {/* Prompt Input */}
+      <div className="p-6 space-y-8">
         <div>
-          <label className="block text-sm font-medium text-slate-300 mb-2">
-            Code Prompt
-          </label>
+          <label className="text-[10px] font-bold text-slate-500 uppercase mb-3 block">Input_Sequence</label>
           <textarea
             rows={4}
-            className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none"
-            placeholder="def generate_fibonacci():"
+            className="w-full p-4 bg-black border border-slate-800 rounded-sm text-emerald-500 font-mono text-sm focus:border-emerald-500 outline-none transition-all placeholder-slate-700"
+            placeholder=">>> type your code prompt here..."
             value={prompt}
             onChange={e => setPrompt(e.target.value)}
           />
         </div>
 
-        {/* Controls Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Temperature: {temperature}
-            </label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="space-y-4">
+            <div className="flex justify-between">
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter text-emerald-300">Temp: {temperature}</label>
+            </div>
             <input
-              type="range"
-              min="0.1"
-              max="2"
-              step="0.1"
+              type="range" min="0.1" max="2" step="0.1"
               value={temperature}
               onChange={e => setTemperature(parseFloat(e.target.value))}
-              className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+              className="w-full accent-emerald-500 h-1 bg-slate-800 appearance-none"
             />
-            <div className="flex justify-between text-xs text-slate-400 mt-1">
-              <span>Conservative</span>
-              <span>Creative</span>
-            </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-slate-300 mb-2">
-              Max Length: {length}
-            </label>
+          <div className="space-y-4">
+            <div className="flex justify-between">
+              <label className="text-[10px] font-bold text-slate-500 uppercase text-emerald-300">Tokens: {length}</label>
+            </div>
             <input
-              type="range"
-              min="10"
-              max="250"
-              step="10"
+              type="range" min="10" max="250" step="10"
               value={length}
               onChange={e => setLength(parseInt(e.target.value))}
-              className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer"
+              className="w-full accent-emerald-500 h-1 bg-slate-800 appearance-none"
             />
-            <div className="flex justify-between text-xs text-slate-400 mt-1">
-              <span>Short</span>
-              <span>Long</span>
-            </div>
           </div>
         </div>
 
-        {/* Heatmap Toggle */}
-        <div className="flex items-center gap-3">
-          <input
+        <div className="flex items-center gap-3 py-2 border-t border-slate-900">
+           <input
             type="checkbox"
             id="heatmap"
             checked={heatMap}
             onChange={e => setHeatMap(e.target.checked)}
-            className="w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 rounded focus:ring-purple-500"
+            className="sr-only peer"
           />
-          <label htmlFor="heatmap" className="text-sm font-medium text-slate-300">
-            Show attention heatmap
-          </label>
+          <label htmlFor="heatmap" className="relative w-10 h-5 bg-slate-800 rounded-full peer-checked:bg-emerald-600 transition-colors cursor-pointer after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:w-3 after:h-3 after:rounded-full after:transition-all peer-checked:after:translate-x-5"></label>
+          <span className="text-[10px] font-bold text-slate-400 uppercase">Visualize Attention</span>
         </div>
 
-        {/* Submit Button */}
         <button
           onClick={onSubmit}
           disabled={loading || !prompt.trim()}
-          className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 disabled:from-slate-600 disabled:to-slate-700 text-white font-medium rounded-lg transition-all duration-200 disabled:cursor-not-allowed"
+          className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 disabled:bg-slate-800 text-black font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(16,185,129,0.1)]"
         >
-          {loading ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              Generating...
-            </>
-          ) : (
-            <>
-              <Play className="w-5 h-5" />
-              Generate Code
-            </>
-          )}
+          {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Play className="w-5 h-5 fill-current" />}
+          {loading ? "Processing..." : "Execute_Generation"}
         </button>
       </div>
     </div>

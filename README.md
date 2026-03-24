@@ -47,11 +47,10 @@ Built with Next.js, the interactive interface allows users to:
 - Experiment with different prompts in real-time
 
 ### Interface Screenshots
-![Main Interface](images/ss2.png)
-![Generation Controls](images/ss3.png)
-![Generated Code](images/ss4.png)
-![Attention Visualization](images/ss5.png)
-![Attention Details](images/ss6.png)
+![Main Interface](images/ss2.jpg)
+![Generation Controls](images/ss3.jpg)
+![Generated Code](images/ss4.jpg)
+![Attention Visualization](images/ss5.jpg)
 
 ## 🚀 Quick Start
 
