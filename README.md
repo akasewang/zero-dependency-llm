@@ -177,9 +177,8 @@ zero-dependency-llm/
     ├── ss1.png              # Training progress
     ├── ss2.png              # Main interface
     ├── ss3.png              # Generation controls
-    └── ss4.png              # Generated Code
-    └── ss5.png              # Attention visualization
-    └── ss6.png              # Attention Details
+    └── ss4.png              # Attention visualization
+    └── ss5.png              # Attention Details
 ```
 
 ## 🎓 Learning Outcomes
